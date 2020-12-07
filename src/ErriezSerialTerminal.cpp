@@ -101,9 +101,9 @@ void SerialTerminal::readSerial()
     char *command;
     char c;
 
-    while (Serial.available() > 0) {
+    while (bsp_serial_available() > 0) {
         // Read one character from serial port
-        c = (char)Serial.read();
+        c = (char)bsp_serial_read();
 
         // Check newline character \c '\\r' or \c '\\n' at the end of a command
         if (c == _newlineChar) {
